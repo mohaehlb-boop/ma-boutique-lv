@@ -1,300 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tienda Ficticia Shopify - Aprende Compra Venta</title>
-  <!-- Enlazar archivo CSS externo -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Fuente profesional (Inter) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Shopify - Ebook Profesional</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0066FF">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Guía completa para ganar dinero con Shopify. Ebook con estrategias reales.">
+    <meta property="og:title" content="Aprende a ganar dinero con Shopify">
+    <meta property="og:description" content="Estrategias de compra-venta que funcionan.">
+    <meta property="og:image" content="/img/og-cover.jpg">
+    <meta property="og:url" content="https://tu-sitio.com">
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Ebook Shopify",
+      "image": "/img/portada_ebook.png",
+      "description": "Guía para compra-venta con Shopify",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "69",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=TU-GA4-ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'TU-GA4-ID');
+    </script>
+    <!-- Facebook Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'TU-FB-PIXEL-ID');
+      fbq('track', 'PageView');
+    </script>
+    <!-- TikTok Pixel -->
+    <script>
+      !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('TU-TT-PIXEL-ID');ttq.page();}(window,document,'ttq');
+    </script>
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </head>
 <body>
-  <!-- =========================
-       Navbar pegajosa (Sticky Nav)
-       ========================= -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <a href="#inicio">LogoTienda</a> <!-- Enlace al inicio -->
-      </div>
-      <ul class="nav-menu">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#beneficios">Beneficios</a></li>
-        <li><a href="#sobre-mi">Sobre Mí</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#ebook">Ebook</a></li>
-        <li><a href="#preguntas">Preguntas Frecuentes</a></li>
-      </ul>
-      <!-- Botón destacado "Comprar Ahora" que lleva a la sección Ebook -->
-      <a href="#ebook" class="btn btn-primary">Comprar Ahora</a>
-      <!-- Icono de menú (hamburguesa) para móviles -->
-      <div class="menu-toggle">
-        <span></span><span></span><span></span>
-      </div>
-    </nav>
-  </header>
+    <header class="sticky">
+        <div class="logo">Shopify Mastery</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#tienda">Tienda</a></li>
+                <li><a href="#ebook">Ebook</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="cta primary" onclick="scrollToEbook()">Comprar ahora</button>
+    </header>
 
-  <!-- =========================
-       Hero Section (pantalla completa)
-       ========================= -->
-  <section id="inicio" class="hero-section">
-    <div class="hero-content">
-      <h1>Aprende a ganar dinero con Shopify desde cero</h1>
-      <p>Conviértete en experto en compra-venta sin experiencia previa</p>
-      <!-- CTA anclado a sección Ebook -->
-      <a href="#ebook" class="btn btn-primary">Ver curso</a>
+    <section id="hero" class="hero">
+        <!-- Hero Variant A (default; switch for A/B) -->
+        <h1>Aprende a ganar dinero con Shopify desde cero</h1>
+        <p>Estrategias reales de compra-venta que funcionan. Ebook + plantillas. Empieza hoy.</p>
+        <button class="cta primary">Quiero el ebook — 69€</button>
+        <!-- Variant B (comenta A y descomenta para test) -->
+        <!-- <h1>Tu primera tienda rentable en 30 días</h1> -->
+        <!-- <p>Guía paso a paso para encontrar productos ganadores y escalar ventas con Shopify.</p> -->
+        <!-- <button class="cta primary">Acceder al curso</button> -->
+        <!-- Variant C -->
+        <!-- <h1>Domina Shopify y genera ingresos pasivos</h1> -->
+        <!-- <p>De principiante a experto en e-commerce. Incluye bonuses exclusivos.</p> -->
+        <!-- <button class="cta primary">Obtén tu copia ahora — 69€</button> -->
+    </section>
+
+    <div class="trust-bar">
+        <p>+1.200 estudiantes</p>
+        <p>Pago seguro: <img src="/img/stripe-logo.png" alt="Stripe"> & <img src="/img/paypal-logo.png" alt="PayPal"></p>
+        <p>14 días de garantía de devolución</p>
     </div>
-    <!-- Imagen de fondo (se configura en CSS) -->
-    <div class="hero-image"></div>
-  </section>
 
-  <!-- =========================
-       Simulación de tienda (productos ficticios)
-       ========================= -->
-  <section id="tienda" class="tienda-section">
-    <h2>Nuestros productos destacados</h2>
-    <div class="productos-grid">
-      <!-- Tarjeta de producto (repetir según se necesite) -->
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Producto 1">
-        <h3>Producto 1</h3>
-        <p class="precio">19,99€</p>
-        <button class="btn btn-secondary" onclick="showEbookMensaje()">Ver Producto</button>
-      </div>
-      <!-- Ejemplo: 6 productos -->
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Producto 2">
-        <h3>Producto 2</h3>
-        <p class="precio">24,99€</p>
-        <button class="btn btn-secondary" onclick="showEbookMensaje()">Ver Producto</button>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Producto 3">
-        <h3>Producto 3</h3>
-        <p class="precio">15,99€</p>
-        <button class="btn btn-secondary" onclick="showEbookMensaje()">Ver Producto</button>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Producto 4">
-        <h3>Producto 4</h3>
-        <p class="precio">29,99€</p>
-        <button class="btn btn-secondary" onclick="showEbookMensaje()">Ver Producto</button>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Producto 5">
-        <h3>Producto 5</h3>
-        <p class="precio">12,99€</p>
-        <button class="btn btn-secondary" onclick="showEbookMensaje()">Ver Producto</button>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Producto 6">
-        <h3>Producto 6</h3>
-        <p class="precio">22,99€</p>
-        <button class="btn btn-secondary" onclick="showEbookMensaje()">Ver Producto</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       Beneficios del curso
-       ========================= -->
-  <section id="beneficios" class="beneficios-section">
-    <h2>¿Qué aprenderás?</h2>
-    <div class="beneficios-grid">
-      <div class="beneficio">
-        <div class="icono">🛒</div>
-        <h3>Crear tu tienda</h3>
-        <p>Aprende a montar tu tienda profesional en Shopify paso a paso.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icono">🔍</div>
-        <h3>Elegir productos</h3>
-        <p>Descubre cómo encontrar productos rentables para vender.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icono">📈</div>
-        <h3>Usar Ads</h3>
-        <p>Conoce las mejores estrategias de marketing y publicidad en línea.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icono">🤖</div>
-        <h3>Automatizar entregas</h3>
-        <p>Optimiza tu tiempo con herramientas de automatización y dropshipping.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       Sobre Mí
-       ========================= -->
-  <section id="sobre-mi" class="sobre-mi-section">
-    <h2>Sobre Mí</h2>
-    <div class="sobre-mi-content">
-      <img src="https://via.placeholder.com/150" alt="Foto del creador" class="foto-creador">
-      <div class="texto-sobre-mi">
-        <p>¡Hola! Soy [Tu Nombre], experto en comercio electrónico con años de experiencia creando tiendas exitosas en Shopify. Quiero compartir todos mis conocimientos contigo.</p>
-        <p>Sigue mi trabajo en redes sociales:</p>
-        <div class="social-icons">
-          <a href="#" target="_blank">🐦 Twitter</a>
-          <a href="#" target="_blank">📸 Instagram</a>
-          <a href="#" target="_blank">🎥 YouTube</a>
+    <section id="tienda" class="tienda">
+        <h2>Tienda Simulada (Ejemplos de Éxito con Shopify)</h2>
+        <div class="grid">
+            <div class="product-card" onclick="openProductModal('1')">
+                <img src="/img/producto1.jpg" alt="Producto 1">
+                <p>Producto Ejemplo 1</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('2')">
+                <img src="/img/producto2.jpg" alt="Producto 2">
+                <p>Producto Ejemplo 2</p>
+            </div>
+            <!-- Repite para 3-6 con placeholders similares -->
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================
-       Testimonios
-       ========================= -->
-  <section id="testimonios" class="testimonios-section">
-    <h2>Testimonios</h2>
-    <div class="testimonios-grid">
-      <!-- Tarjeta testimonio -->
-      <div class="testimonio-card">
-        <img src="https://via.placeholder.com/100" alt="Persona 1" class="testimonio-img">
-        <h3>Maria G.</h3>
-        <p>"Gracias al ebook, lancé mi primera tienda en Shopify en 2 semanas. ¡Super recomendado!"</p>
-      </div>
-      <div class="testimonio-card">
-        <img src="https://via.placeholder.com/100" alt="Persona 2" class="testimonio-img">
-        <h3>Carlos R.</h3>
-        <p>"El contenido es claro y práctico. Aprendí todo lo necesario para vender online."</p>
-      </div>
-      <div class="testimonio-card">
-        <img src="https://via.placeholder.com/100" alt="Persona 3" class="testimonio-img">
-        <h3>Ana L.</h3>
-        <p>"Con el método que explica el ebook, mis ventas subieron un 50% en el primer mes."</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       Sección del Ebook (producto principal)
-       ========================= -->
-  <section id="ebook" class="ebook-section">
-    <h2>Curso: Domina la compra-venta en Shopify</h2>
-    <div class="ebook-content">
-      <img src="https://via.placeholder.com/250x350" alt="Portada del Ebook" class="portada-ebook">
-      <div class="detalles-ebook">
-        <p>Descubre todo lo que necesitas para crear y gestionar tu tienda online, desde cero.</p>
-        <ul>
-          <li>✅ Capítulo 1: Introducción a Shopify</li>
-          <li>✅ Capítulo 2: Encontrar productos ganadores</li>
-          <li>✅ Capítulo 3: Diseño de la tienda</li>
-          <li>✅ Capítulo 4: Marketing y publicidad</li>
-          <li>✅ Capítulo 5: Automatización y escalabilidad</li>
+    <section id="beneficios">
+        <h2>¿Qué Aprenderás?</h2>
+        <ul class="benefits-list">
+            <li><img src="/img/icon-check.png" alt="Icon">Encontrar productos ganadores con herramientas gratuitas.</li>
+            <li><img src="/img/icon-check.png" alt="Icon">Configurar tu tienda Shopify en horas.</li>
+            <li><img src="/img/icon-check.png" alt="Icon">Estrategias de marketing para primeras ventas.</li>
+            <li><img src="/img/icon-check.png" alt="Icon">Escalar a 6 figuras con dropshipping.</li>
+            <li><img src="/img/icon-check.png" alt="Icon">Evitar errores comunes y optimizar conversión.</li>
+            <li><img src="/img/icon-check.png" alt="Icon">Bonuses: Plantillas y checklists.</li>
         </ul>
-        <p class="precio-ebook"><strong>Solo 69€</strong></p>
-        <button class="btn btn-primary" onclick="showPaymentForm()">Comprar Ahora</button>
-      </div>
+    </section>
+
+    <section id="sobre-mi">
+        <h2>Sobre Mí - Mohamed</h2>
+        <img src="/img/foto-mohamed.jpg" alt="Foto de Mohamed" class="circular">
+        <p>Emprendedor en e-commerce con +5 años de experiencia. He generado >100k€ en ventas con Shopify. Enlaces: <a href="https://instagram.com/tu-ig">Instagram</a>, <a href="https://tiktok.com/tu-tt">TikTok</a>, <a href="https://youtube.com/tu-yt">YouTube</a>.</p>
+    </section>
+
+    <section id="testimonios">
+        <h2>Testimonios</h2>
+        <div class="carousel">
+            <div class="testimonial"> "Increíble guía, mi primera venta en 1 semana!" - Juan P.</div>
+            <div class="testimonial"> "Estrategias reales, recomiendo 100%." - Maria S.</div>
+            <div class="testimonial"> "De 0 a rentable en 30 días." - Pedro L.</div>
+            <!-- Agrega 3 más placeholders; usa JS para carousel simple -->
+        </div>
+    </section>
+
+    <section id="ebook">
+        <h2>El Ebook: Tu Guía Definitiva</h2>
+        <img src="/img/portada_ebook.png" alt="Portada Ebook">
+        <ul class="chapters">
+            <li>Capítulo 1: Introducción a Shopify</li>
+            <li>Capítulo 2: Investigación de Productos</li>
+            <li>Capítulo 3: Configuración de Tienda</li>
+            <li>Capítulo 4: Marketing y Ventas</li>
+            <li>Capítulo 5: Escalado y Optimización</li>
+            <li>Bonuses: Plantillas y Recursos</li>
+        </ul>
+        <div class="benefits">
+            <p>Beneficios: Aprende en tu ritmo, resultados reales, soporte vía email.</p>
+        </div>
+        <p class="price">Precio: <strong>69€</strong> (Oferta limitada; normal 89€)</p>
+        <div class="payment-buttons">
+            <button class="cta primary" onclick="openPreCheckout('stripe')">Comprar con Stripe</button>
+            <button class="cta primary" onclick="openPreCheckout('paypal')">Comprar con PayPal</button>
+        </div>
+        <button class="cta secondary" onclick="openLeadMagnet()">Ver muestra gratis (Mini-PDF)</button>
+        <p class="microcopy">Recibirás el ebook por email en menos de 5 minutos. Garantía 14 días.</p>
+        <div class="secure-badge">Pago seguro • 14 días garantía</div>
+    </section>
+
+    <section id="faqs">
+        <h2>FAQs</h2>
+        <div class="accordion" role="tablist">
+            <button role="tab" aria-expanded="false">¿Qué incluye el ebook?</button>
+            <div class="panel">Guía completa + bonuses.</div>
+            <!-- Agrega 4-6 más con ARIA -->
+        </div>
+    </section>
+
+    <footer>
+        <p>Políticas | Contacto | Aviso: Este sitio es demostrativo; resultados varían.</p>
+        <a href="/privacidad.html">Aviso de Privacidad</a>
+        <a href="/cookies.html">Política de Cookies</a>
+        <a href="/terminos.html">Términos de Servicio</a>
+        <a href="/reembolso.html">Política de Reembolso</a>
+    </footer>
+
+    <!-- Modal Pre-Checkout -->
+    <div id="pre-checkout-modal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <form id="pre-checkout-form">
+                <label for="name">Nombre</label>
+                <input id="name" type="text" required aria-required="true">
+                <label for="email">Email</label>
+                <input id="email" type="email" required aria-required="true">
+                <p>Introduce tu nombre y correo — te redirigimos al pago seguro</p>
+                <label><input type="checkbox" required> Acepto la política de privacidad (GDPR)</label>
+                <button type="submit" class="cta primary">Continuar</button>
+            </form>
+        </div>
     </div>
-    <!-- =========================
-         Formulario emergente simulado de "pago"
-         ========================= -->
-    <div id="paymentForm" class="modal">
-      <div class="modal-content">
-        <span class="close-btn" onclick="closePaymentForm()">&times;</span>
-        <h3>¡Gracias por tu compra!</h3>
-        <p>Ingresa tus datos y nos pondremos en contacto:</p>
-        <form action="#" method="post">
-          <input type="text" placeholder="Nombre completo" required>
-          <input type="email" placeholder="Correo electrónico" required>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+
+    <!-- Modal Product -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <p>Este producto fue creado gracias a Shopify. Aprende cómo con mi ebook.</p>
+            <button class="cta primary" onclick="closeModal()">Ver ebook</button>
+        </div>
+    </div>
+
+    <!-- Modal Lead Magnet -->
+    <div id="lead-magnet-modal" class="modal">
+        <form>
+            <label>Email para enviar muestra gratis</label>
+            <input type="email" required>
+            <button type="submit">Enviar</button>
         </form>
-      </div>
     </div>
-  </section>
 
-  <!-- =========================
-       Preguntas Frecuentes (FAQ)
-       ========================= -->
-  <section id="preguntas" class="faq-section">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <button class="faq-question">¿Necesito experiencia previa?</button>
-        <div class="faq-answer">
-          <p>No, el curso está diseñado para principiantes sin experiencia previa. Te guía paso a paso.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Cuánto dura el acceso al curso?</button>
-        <div class="faq-answer">
-          <p>El acceso es de por vida, revisa el contenido las veces que necesites.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Hay garantía de devolución?</button>
-        <div class="faq-answer">
-          <p>Sí, ofrecemos 14 días de garantía de devolución si no quedas satisfecho.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Incluye soporte personalizado?</button>
-        <div class="faq-answer">
-          <p>Sí, tendrás acceso a un grupo privado y soporte por correo.</p>
-        </div>
-      </div>
+    <!-- Modal Exit-Intent (descuento) -->
+    <div id="exit-intent-modal" class="modal">
+        <p>¡Espera! Deja tu email para 10% de descuento en el ebook.</p>
+        <form>
+            <input type="email" required>
+            <button>Obtener descuento</button>
+        </form>
     </div>
-  </section>
 
-  <!-- =========================
-       Footer
-       ========================= -->
-  <footer>
-    <div class="footer-content">
-      <div class="logo">
-        <a href="#">LogoTienda</a>
-      </div>
-      <div class="social-icons">
-        <a href="#" target="_blank">🐦</a>
-        <a href="#" target="_blank">📸</a>
-        <a href="#" target="_blank">🎥</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
-      <p><small>Este sitio es parte de una simulación de tienda para propósitos educativos.</small></p>
-    </div>
-  </footer>
-
-  <!-- =========================
-       Scripts JavaScript
-       (Toggle menú móvil, mensaje simulado y FAQ)
-       ========================= -->
-  <script>
-    // Toggle del menú móvil (hamburguesa)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
-
-    // Mensaje al hacer clic en producto (simulación)
-    function showEbookMensaje() {
-      alert('Este producto fue creado con Shopify. Aprende cómo con nuestro ebook.');
-      // Redirige a la sección del ebook
-      window.location.href = '#ebook';
-    }
-
-    // Mostrar/ocultar formulario emergente de "pago"
-    function showPaymentForm() {
-      document.getElementById('paymentForm').style.display = 'flex';
-    }
-    function closePaymentForm() {
-      document.getElementById('paymentForm').style.display = 'none';
-    }
-
-    // Funcionalidad FAQ (acordeón)
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        item.classList.toggle('open');
-      });
-    });
-  </script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
