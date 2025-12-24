@@ -3,43 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviso de Privacidad - Shopify Ebook</title>
+    <title>Aviso de Privacidad - Shopify Mastery</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <section style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-        <h1>Aviso de Privacidad</h1>
-        <p><strong>Última actualización: 24 de diciembre de 2025</strong></p>
-        
-        <p>En este sitio web recopilamos únicamente la información necesaria para procesar tu compra y entregar el ebook:</p>
-        <ul>
-            <li>Nombre completo</li>
-            <li>Dirección de correo electrónico</li>
-            <li>Datos de pago (procesados de forma segura por Stripe o PayPal, nunca los almacenamos nosotros)</li>
-        </ul>
-        
-        <h2>¿Para qué usamos tus datos?</h2>
-        <p>Exclusivamente para:</p>
-        <ul>
-            <li>Procesar tu pedido y enviarte el ebook</li>
-            <li>Enviarte confirmación de compra y soporte relacionado</li>
-            <li>Cumplir con obligaciones legales (facturación si aplica)</li>
-        </ul>
-        
-        <h2>Tus derechos (GDPR)</h2>
-        <p>Si resides en la Unión Europea, tienes derecho a:</p>
-        <ul>
-            <li>Acceder a tus datos</li>
-            <li>Rectificarlos</li>
-            <li>Solicitar su eliminación</li>
-            <li>Oponerte al tratamiento</li>
-        </ul>
-        <p>Puedes ejercer estos derechos enviando un email a <strong>soporte@tu-dominio.com</strong></p>
-        
-        <h2>Seguridad</h2>
-        <p>Tus datos están protegidos y nunca se comparten con terceros salvo para el procesamiento del pago (Stripe/PayPal) o entrega del producto.</p>
-        
-        <p><a href="/">← Volver al inicio</a></p>
+    <section class="legal-hero" data-aos="fade-down">
+        <div class="legal-overlay"></div>
+        <div class="legal-content">
+            <h1 data-aos="fade-up" data-aos-delay="300">Aviso de Privacidad</h1>
+            <p data-aos="fade-up" data-aos-delay="600">Tu confianza es lo primero. Aquí te explicamos cómo cuidamos tus datos.</p>
+        </div>
     </section>
+
+    <section class="section-padding legal-body">
+        <div class="legal-container" data-aos="fade-up">
+            <h2 data-aos="fade-up" data-aos-delay="100">Última actualización: 24 de diciembre de 2025</h2>
+            
+            <div class="legal-block" data-aos="fade-up" data-aos-delay="200">
+                <h3>¿Qué datos recopilamos?</h3>
+                <p>Solo lo estrictamente necesario para entregarte el ebook y procesar tu compra:</p>
+                <ul>
+                    <li>Nombre completo</li>
+                    <li>Dirección de correo electrónico</li>
+                    <li>Datos de pago (procesados de forma segura por Stripe o PayPal — nosotros nunca los vemos ni almacenamos)</li>
+                </ul>
+            </div>
+
+            <div class="legal-block" data-aos="fade-up" data-aos-delay="300">
+                <h3>¿Para qué usamos tus datos?</h3>
+                <p>Exclusivamente para:</p>
+                <ul>
+                    <li>Procesar tu pedido y enviarte el ebook + bonuses</li>
+                    <li>Confirmación de compra y soporte relacionado</li>
+                    <li>Envío de actualizaciones importantes (opcional)</li>
+                    <li>Cumplir con obligaciones legales</li>
+                </ul>
+            </div>
+
+            <div class="legal-block" data-aos="fade-up" data-aos-delay="400">
+                <h3>Tus derechos (GDPR)</h3>
+                <p>Si resides en la Unión Europea, tienes derecho a:</p>
+                <ul>
+                    <li>Acceder a tus datos</li>
+                    <li>Rectificarlos</li>
+                    <li>Solicitar su eliminación</li>
+                    <li>Oponerte al tratamiento</li>
+                    <li>Portabilidad de datos</li>
+                </ul>
+                <p>Puedes ejercer estos derechos enviando un email a <strong>soporte@tu-dominio.com</strong></p>
+            </div>
+
+            <div class="legal-block" data-aos="fade-up" data-aos-delay="500">
+                <h3>Seguridad y terceros</h3>
+                <p>Tus datos están protegidos con encriptación y nunca se comparten con terceros salvo:</p>
+                <ul>
+                    <li>Stripe y PayPal (para pagos seguros)</li>
+                    <li>Proveedores de email transaccional (SendGrid/Postmark)</li>
+                </ul>
+                <p>No vendemos ni compartimos tus datos con fines publicitarios.</p>
+            </div>
+
+            <div class="legal-back" data-aos="fade-up" data-aos-delay="600">
+                <a href="/" class="cta primary">← Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: true
+      });
+    </script>
 </body>
 </html>
