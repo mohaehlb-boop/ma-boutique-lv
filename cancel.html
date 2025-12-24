@@ -3,23 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago Cancelado - Shopify Ebook</title>
+    <title>Pago Cancelado - Shopify Mastery</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <section class="hero" style="height: 100vh; background: #FF4444; color: #FFFFFF; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px;">
-        <h1>Pago Cancelado</h1>
-        <p>No se ha completado el pago. No se ha realizado ningún cargo.</p>
-        <p>Puedes volver a intentarlo o elegir otro método de pago.</p>
-        <p>Si tienes alguna duda o problema, contáctanos en soporte@tu-dominio.com</p>
-        
-        <div style="margin-top: 40px;">
-            <a href="/" class="cta primary" style="display: inline-block; padding: 15px 30px; text-decoration: none;">Volver al sitio y comprar de nuevo</a>
+    <!-- Hero de Cancelación (no agresivo, sino empático y persuasivo) -->
+    <section class="cancel-hero" data-aos="fade-down" data-aos-duration="1200">
+        <div class="cancel-overlay"></div>
+        <div class="cancel-content">
+            <h1 data-aos="fade-up" data-aos-delay="300">No Hay Problema, Todo Está Bien</h1>
+            <p data-aos="fade-up" data-aos-delay="600" class="cancel-subtitle">El pago no se ha completado. No se ha realizado ningún cargo en tu tarjeta.</p>
+            
+            <div class="cancel-icon" data-aos="fade-up" data-aos-delay="900">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#FF6B6B" stroke-width="8" fill="none"/>
+                    <path d="M30 70 L70 30 M70 70 L30 30" stroke="#FF6B6B" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <div class="cancel-reasons" data-aos="fade-up" data-aos-delay="1200">
+                <p>¿Por qué cancelaste? Aquí las razones más comunes:</p>
+                <ul>
+                    <li>Querías revisar otro método de pago</li>
+                    <li>Duda de última hora (normal, es una inversión en tu futuro)</li>
+                    <li>Problema técnico</li>
+                </ul>
+            </div>
+
+            <!-- Recuperación del cliente: Oferta suave + CTA fuerte -->
+            <div class="cancel-offer" data-aos="zoom-in" data-aos-delay="1500">
+                <h2>¿Quieres intentarlo de nuevo con un 10% de descuento exclusivo?</h2>
+                <p>Solo por hoy, usa el código <strong>BIENVENIDA10</strong> al volver a comprar.</p>
+                <p class="cancel-price">Ebook por solo <strong style="font-size: 2.5rem; color: #00FF88;">62€</strong> en lugar de 69€</p>
+                
+                <div class="cancel-buttons">
+                    <a href="/" class="cta primary huge glow">Volver y Comprar con 10% OFF</a>
+                    <a href="#contacto" class="cta secondary large">Hablar conmigo (Chat o Email)</a>
+                </div>
+                
+                <p class="cancel-note">Oferta válida solo 24h. No te arrepentirás — +1.200 estudiantes ya cambiaron su vida.</p>
+            </div>
+
+            <p class="cancel-support" data-aos="fade-up" data-aos-delay="1800">
+                ¿Necesitas ayuda? Escríbeme directamente a <strong>soporte@tu-dominio.com</strong>
+            </p>
         </div>
-        
-        <p style="margin-top: 40px; font-size: 0.9rem;">
-            ¿Necesitas ayuda? Escríbeme directamente.
-        </p>
     </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: true
+      });
+    </script>
 </body>
 </html>
