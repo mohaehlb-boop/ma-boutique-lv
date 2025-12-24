@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Compra Exitosa! - Shopify Ebook</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <section class="hero" style="height: 100vh; background: #28A745; color: #FFFFFF; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1>¡Enhorabuena, Mohamed!</h1>
+        <p>Tu compra ha sido procesada con éxito.</p>
+        <p>Revisa tu email (incluyendo la carpeta de spam) para descargar tu ebook en menos de 5 minutos.</p>
+        <p>Resumen del pedido: Ebook Shopify - 69€</p>
+        <p>Si no recibes el email, contáctanos en soporte@tu-dominio.com</p>
+        
+        <!-- Upsell Post-Compra -->
+        <div class="upsell" style="margin-top: 40px; background: rgba(255,255,255,0.2); padding: 30px; border-radius: 8px; max-width: 600px;">
+            <h2>Oferta Exclusiva Solo para Ti</h2>
+            <p>Agrega las <strong>Plantillas Shopify + Checklist de Productos Ganadores</strong> por solo <strong>29€</strong> (valor real 79€)</p>
+            <button class="cta primary upsell-button" style="font-size: 1.2rem; padding: 15px 30px;" onclick="handleUpsell()">Sí, quiero las plantillas por 29€</button>
+            <p style="font-size: 0.9rem; margin-top: 10px;">One-click: se añadirá automáticamente con tu email anterior.</p>
+        </div>
+        
+        <a href="/" style="margin-top: 40px; color: #FFFFFF; text-decoration: underline;">Volver al inicio</a>
+    </section>
+
+    <script>
+    function handleUpsell() {
+      // Aquí se crea una nueva sesión de pago para el upsell usando el email capturado previamente
+      // En producción, puedes pasar el email vía query param o recuperar de session storage
+      const email = new URLSearchParams(window.location.search).get('email') || prompt("Confirma tu email para el upsell:");
+      if (!email) return alert("Email requerido");
+      
+      fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          product_id: 'upsell-plantillas',
+          customer_email: email,
+          price: 2900, // 29€ en cents
+          return_url_success: `${window.location.origin}/success-upsell.html`,
+          return_url_cancel: window.location.href
+        })
+      })
+      .then(res => res.json())
+      .then(data => window.location = data.url)
+      .catch(err => alert("Error procesando upsell. Intenta de nuevo."));
+    }
+    </script>
+</body>
+</html>
