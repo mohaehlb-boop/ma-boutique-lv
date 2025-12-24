@@ -3,49 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Compra Exitosa! - Shopify Ebook</title>
+    <title>¡Compra Exitosa! - Shopify Mastery</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <section class="hero" style="height: 100vh; background: #28A745; color: #FFFFFF; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-        <h1>¡Enhorabuena, Mohamed!</h1>
-        <p>Tu compra ha sido procesada con éxito.</p>
-        <p>Revisa tu email (incluyendo la carpeta de spam) para descargar tu ebook en menos de 5 minutos.</p>
-        <p>Resumen del pedido: Ebook Shopify - 69€</p>
-        <p>Si no recibes el email, contáctanos en soporte@tu-dominio.com</p>
-        
-        <!-- Upsell Post-Compra -->
-        <div class="upsell" style="margin-top: 40px; background: rgba(255,255,255,0.2); padding: 30px; border-radius: 8px; max-width: 600px;">
-            <h2>Oferta Exclusiva Solo para Ti</h2>
-            <p>Agrega las <strong>Plantillas Shopify + Checklist de Productos Ganadores</strong> por solo <strong>29€</strong> (valor real 79€)</p>
-            <button class="cta primary upsell-button" style="font-size: 1.2rem; padding: 15px 30px;" onclick="handleUpsell()">Sí, quiero las plantillas por 29€</button>
-            <p style="font-size: 0.9rem; margin-top: 10px;">One-click: se añadirá automáticamente con tu email anterior.</p>
+    <!-- Hero de Éxito Full-Screen -->
+    <section class="success-hero" data-aos="zoom-out" data-aos-duration="1200">
+        <div class="success-overlay"></div>
+        <div class="success-content">
+            <h1 data-aos="fade-up" data-aos-delay="300">¡Enhorabuena, Campeón!</h1>
+            <p data-aos="fade-up" data-aos-delay="600" class="success-subtitle">Tu compra ha sido procesada con éxito. Bienvenido a la comunidad de emprendedores que están cambiando su vida con Shopify.</p>
+            
+            <div class="success-check" data-aos="flip-up" data-aos-delay="900">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="55" stroke="#00FF88" stroke-width="10"/>
+                    <path d="M35 60 L55 80 L85 40" stroke="#00FF88" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="success-info" data-aos="fade-up" data-aos-delay="1200">
+                <p>Revisa tu email (incluyendo spam) en menos de 5 minutos.</p>
+                <p>Allí encontrarás tu ebook + bonuses y el link de descarga seguro.</p>
+                <p><strong>Resumen del pedido:</strong> Shopify Mastery Ebook - 69€</p>
+            </div>
+
+            <!-- Upsell Irresistible -->
+            <div class="upsell-section" data-aos="zoom-in" data-aos-delay="1500">
+                <h2>Oferta Exclusiva Solo para Ti (One-Click)</h2>
+                <p class="upsell-title">Agrega las <strong>Plantillas Premium + Checklist de Productos Ganadores</strong></p>
+                <p class="upsell-price">Por solo <strong style="font-size: 3rem; color: #00FF88;">29€</strong> <span style="text-decoration: line-through; color: #666;">(Valor real 99€)</span></p>
+                <p class="upsell-benefit">Ahorra horas de diseño y encuentra productos ganadores al instante.</p>
+                
+                <button class="cta primary huge glow pulse" onclick="handleUpsell()">Sí, Agregar Plantillas por 29€</button>
+                <p class="upsell-note">Pago con un clic — se usa tu email anterior. Sin riesgos, garantía 14 días.</p>
+            </div>
+
+            <a href="/" class="back-home" data-aos="fade-up" data-aos-delay="1800">Volver al Inicio</a>
         </div>
-        
-        <a href="/" style="margin-top: 40px; color: #FFFFFF; text-decoration: underline;">Volver al inicio</a>
     </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: true
+      });
+    </script>
 
     <script>
     function handleUpsell() {
-      // Aquí se crea una nueva sesión de pago para el upsell usando el email capturado previamente
-      // En producción, puedes pasar el email vía query param o recuperar de session storage
       const email = new URLSearchParams(window.location.search).get('email') || prompt("Confirma tu email para el upsell:");
-      if (!email) return alert("Email requerido");
-      
+      if (!email) return alert("Email requerido para procesar");
+
       fetch('/.netlify/functions/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          product_id: 'upsell-plantillas',
+          product_id: 'upsell-plantillas-premium',
           customer_email: email,
-          price: 2900, // 29€ en cents
+          price: 2900, // 29€ en céntimos
           return_url_success: `${window.location.origin}/success-upsell.html`,
           return_url_cancel: window.location.href
         })
       })
       .then(res => res.json())
-      .then(data => window.location = data.url)
-      .catch(err => alert("Error procesando upsell. Intenta de nuevo."));
+      .then(data => {
+        if (data.url) window.location = data.url;
+      })
+      .catch(err => alert("Error procesando el upsell. Intenta más tarde o contáctanos."));
     }
     </script>
 </body>
